@@ -17,14 +17,14 @@
 }
 
 .sent-recv {
-  background-color: rgb(65, 71, 71);
+  background-color: rgb(51, 52, 52);
   height: calc(100vh - 20vh);
   width: 100%;
   overflow-y: auto;
 }
 
 .chatroom {
-  background-color: rgb(101, 157, 156);
+  background-color: rgb(120, 140, 173);
   height: 20vh;
   display: flex;
   justify-content: center;
@@ -40,7 +40,7 @@
 
 .chatroom .btn {
   color: rgb(255, 255, 255);
-  background-color: rgb(27, 210, 210);
+  background-color: rgb(46, 104, 196);
   height: 5vmin;
   width: 10vmin;
   border-radius: 0px 10px 10px 0px;
@@ -70,7 +70,8 @@
 
 .msg-send .btn {
   color: rgb(255, 255, 255);
-  background-color: rgb(27, 210, 210);
+  background-color: rgb(46, 104, 196);
+
   height: 5vmin;
   width: 10vmin;
   border-radius: 0px 10px 10px 0px;
