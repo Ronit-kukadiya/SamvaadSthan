@@ -9,6 +9,7 @@ receive {
   /* width: 200px; */
   float: left;
   margin-left: 3vb;
+    color: aliceblue;
 }
 #sent,
 sent {
@@ -17,6 +18,7 @@ sent {
   /* width: 200px; */
   float: right;
   margin-right: 3vb;
+  color: aliceblue;
 }
 .sent-recv {
   background-color: rgb(65, 71, 71);
