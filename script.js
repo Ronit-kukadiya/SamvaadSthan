@@ -4,12 +4,12 @@ const options = {
   // Authentication
   clientId: "01",
   // clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-  username: "ronit",
+  username: "asdf",
   password: "password",
 };
 // THE OPTIONS ARE NOT USED IN THIS PROJECT
 
-const client = mqtt.connect("wss://broker.hivemq.com:8884/mqtt");
+const client = mqtt.connect("wss://broker.hivemq.com:8884/mqtt");//using hivemq
 let WORD = "";
 let sentIgnore = false;
 
@@ -32,7 +32,7 @@ function joinChat() {
 
   client.subscribe(WORD, (err) => {
     if (!err) console.log(`Subscribed to ${WORD}`);
-    alert(`Subscribed to ${WORD}`);
+    alert(`Joined ${WORD}`);
   });
   msg.focus();
 
@@ -60,7 +60,7 @@ msg.addEventListener("keypress", function (event) {
 
 function sendMessage() {
   if (WORD === "") {
-    alert("join a room dirst!");
+    alert("join a room first to send message!");
     room.focus();
     return;
   }
