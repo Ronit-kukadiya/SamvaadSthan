@@ -1,48 +1,49 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 #receive,
-receive {
-  /* background-color: cadetblue; */
-  /* height: 200px; */
-  /* width: 200px; */
+#sent {
   float: left;
-  margin-left: 3vb;
+  margin-left: 3vw;
   color: aliceblue;
 }
-#sent,
-sent {
-  /* background-color: chocolate; */
-  /* height: 200px; */
-  /* width: 200px; */
+
+#sent {
   float: right;
-  margin-right: 3vb;
-  color: aliceblue;
+  margin-right: 3vw;
 }
+
 .sent-recv {
   background-color: rgb(65, 71, 71);
-  height: 100vmax;
+  height: calc(100vh - 20vh);
   width: 100%;
+  overflow-y: auto;
 }
+
 .chatroom {
   background-color: rgb(101, 157, 156);
   height: 20vh;
-  align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .chatroom #room {
-  width: 30vmin;
-  height: 3vmin;
+  width: 40vmin;
+  height: 5vmin;
+  text-align: center;
+  border-radius: 10px 0px 0px 10px;
 }
+
 .chatroom .btn {
   color: rgb(255, 255, 255);
   background-color: rgb(27, 210, 210);
-  height: 3vmin;
-  width: 8vmin;
-  border-radius: 0px 20px 20px 0px;
+  height: 5vmin;
+  width: 10vmin;
+  border-radius: 0px 10px 10px 0px;
 }
 
 .msg-send {
@@ -56,14 +57,15 @@ sent {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .msg-send input {
   flex: 1;
   max-width: 100%;
   padding: 10px;
-  border-radius: 20px 0px 0px 20px;
+  height: 5vmin;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .msg-send .btn {
@@ -71,5 +73,22 @@ sent {
   background-color: rgb(27, 210, 210);
   height: 5vmin;
   width: 10vmin;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+@media (max-width: 600px) {
+  .chatroom #room {
+    width: 40vw;
+    height: 5vh;
+  }
+
+  .msg-send input {
+    padding: 8px;
+    height: 5vh;
+  }
+  .chatroom .btn,
+  .msg-send .btn {
+    height: 5vh;
+    width: 15vw;
+  }
 }
