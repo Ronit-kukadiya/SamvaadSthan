@@ -1,31 +1,94 @@
+/* :root {
+  --ChatIDDiv: rgb(66, 88, 123);
+  --ChatInpBg: rgb(60, 65, 65);
+  --ChatSpace: rgb(27, 29, 34);
+  --ButtonsBG: rgb(46, 104, 196);
+  --ButtonsHoverBG: rgb(24, 71, 148);
+  --SentBbl: rgb(6, 67, 167);
+  --RecvBbl: rgb(60, 65, 65);
+  --TxtColor: aliceblue;
+  --MsgInpBG: rgb(60, 65, 65);
+} */
+
+:root {
+  --ChatIDDiv: rgb(39, 66, 110);
+  --ChatInpBg: rgb(60, 65, 65);
+  --ChatSpace: rgb(23, 25, 31);
+  --ButtonsBG: rgb(45, 94, 173);
+  --ButtonsHoverBG: rgb(26, 38, 177);
+  --SentBbl: rgb(23, 82, 175);
+  --RecvBbl: rgb(64, 69, 69);
+  --TxtColor: aliceblue;
+  --MsgInpBG: rgb(60, 65, 65);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-#receive,
-#sent {
-  float: left;
-  margin-left: 3vw;
-  color: aliceblue;
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
 }
 
-#sent {
-  float: right;
-  margin-right: 3vw;
+.loader-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 .sent-recv {
-  background-color: rgb(51, 52, 52);
-  height: calc(100vh - 20vh);
+  background-color: var(--ChatSpace);
+  height: calc(100vh - 10vh);
   width: 100%;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.StyleSent,
+.StyleReceive {
+  max-width: 40vw;
+  width: fit-content;
+  /* min-width: 5vw; */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin: 5px 10px;
+}
+
+.StyleSent {
+  background-color: var(--SentBbl);
+  align-self: flex-end;
+  color: var(--TxtColor);
+}
+
+.StyleSent:last-of-type {
+  margin-bottom: 6vh;
+}
+
+.StyleReceive:last-of-type {
+  margin-bottom: 6vh;
+}
+
+.StyleReceive {
+  background-color: var(--RecvBbl);
+  align-self: flex-start;
+  color: var(--TxtColor);
 }
 
 .chatroom {
-  background-color: rgb(120, 140, 173);
-  height: 20vh;
+  background-color: var(--ChatIDDiv);
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,32 +98,43 @@
   width: 40vmin;
   height: 5vmin;
   text-align: center;
+  background-color: var(--ChatInpBg);
+  color: var(--TxtColor);
   border-radius: 10px 0px 0px 10px;
+}
+::placeholder {
+  color: var(--TxtColor);
 }
 
 .chatroom .btn {
-  color: rgb(255, 255, 255);
-  background-color: rgb(46, 104, 196);
+  color: var(--TxtColor);
+  background-color: var(--ButtonsBG);
   height: 5vmin;
   width: 10vmin;
   border-radius: 0px 10px 10px 0px;
 }
 
+.btn:hover {
+  background-color: var(--ButtonsHoverBG) !important;
+  color: var(--TxtColor) !important;
+}
+
 .msg-send {
   display: flex;
   position: fixed;
-  bottom: 2%;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 100vb;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 5px;
 }
 
 .msg-send input {
+  background-color: var(--MsgInpBG);
+  color: var(--TxtColor);
   flex: 1;
   max-width: 100%;
   padding: 10px;
@@ -69,9 +143,8 @@
 }
 
 .msg-send .btn {
-  color: rgb(255, 255, 255);
-  background-color: rgb(46, 104, 196);
-
+  color: var(--TxtColor);
+  background-color: var(--ButtonsBG);
   height: 5vmin;
   width: 10vmin;
   border-radius: 0px 10px 10px 0px;
@@ -87,9 +160,15 @@
     padding: 8px;
     height: 5vh;
   }
+
   .chatroom .btn,
   .msg-send .btn {
     height: 5vh;
     width: 15vw;
+  }
+
+  .StyleSent,
+  .StyleReceive {
+    max-width: 60vw;
   }
 }
