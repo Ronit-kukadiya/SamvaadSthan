@@ -14,8 +14,10 @@ const client = mqtt.connect("wss://broker.hivemq.com:8884/mqtt"); //using hivemq
 //if you want to improve it, try making your own broker.
 
 let WORD = "";
-let sentIgnore = false;
-
+let sentIgnore = false;//this setIgnore is used to block/ignore the message sent by you from displaying on the received side since the message 
+                       //go to the same topic and this can lead to what you send being displayed on the receive side, that is the nature of Mqtt,
+                       //that's how it works. this ignore is not the best solution to deal with this as spamming messages/continuous messages being 
+                       // sent can LEAK into the receive side since 'on.message' is async and constantly listens for incoming messages
 let msg = document.getElementById("msg");
 let room = document.getElementById("room");
 let btn = document.querySelector(".btn");
