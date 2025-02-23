@@ -12,6 +12,7 @@
 
 :root {
   --ChatIDDiv: rgb(39, 66, 110);
+  --ChatRoomName: rgb(34, 55, 90);
   --ChatInpBg: rgb(60, 65, 65);
   --ChatSpace: rgb(23, 25, 31);
   --ButtonsBG: rgb(45, 94, 173);
@@ -57,7 +58,6 @@
 .StyleReceive {
   max-width: 40vw;
   width: fit-content;
-  /* min-width: 5vw; */
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding: 10px;
@@ -70,6 +70,11 @@
   background-color: var(--SentBbl);
   align-self: flex-end;
   color: var(--TxtColor);
+}
+
+.StyleSent::selection {
+  color: var(--TxtColor);
+  background: var(--RecvBbl);
 }
 
 .StyleSent:last-of-type {
@@ -86,12 +91,25 @@
   color: var(--TxtColor);
 }
 
+.chatroom-name {
+  background-color: var(--ChatRoomName);
+  color: var(--TxtColor);
+  position: absolute;
+  left: 10px;
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: normal;
+}
+
 .chatroom {
   background-color: var(--ChatIDDiv);
+  position: sticky;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .chatroom #room {
@@ -170,5 +188,13 @@
   .StyleSent,
   .StyleReceive {
     max-width: 60vw;
+  }
+
+  .chatroom-name {
+    font-size: 1.2rem;
+    max-width: 50vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
