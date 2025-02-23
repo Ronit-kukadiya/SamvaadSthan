@@ -176,7 +176,7 @@
   .sent-recv {
     /* margin-top: 12vh;  */
     overflow-y: auto; 
-    /* max-height: calc(100vh - 12vh); */
+    max-height: calc(100vh - 12vh); 
   }
 
   .chatroom {
