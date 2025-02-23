@@ -104,14 +104,12 @@
 
 .chatroom {
   background-color: var(--ChatIDDiv);
-  position: fixed;
-  top: 0;
+  position: sticky;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 1000;
 }
 
 .chatroom #room {
