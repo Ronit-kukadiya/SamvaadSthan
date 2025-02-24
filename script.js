@@ -26,6 +26,7 @@ let roomname = document.querySelector(".chatroom-name");
 const chatContainer = document.querySelector(".sent-recv");
 
 const receiveSound = new Audio("./notification-sound/discord-notification.mp3");
+const sentSound = new Audio("./notification-sound/pew.mp3");
 
 room.focus();
 
@@ -111,6 +112,7 @@ function sendMessage() {
   sent.textContent = message;
   document.querySelector(".sent-recv").appendChild(sent);
   sent.scrollIntoView({ behavior: "smooth" });
+  sentSoundAudio.play();
 
   msg.value = "";
   msg.focus();
