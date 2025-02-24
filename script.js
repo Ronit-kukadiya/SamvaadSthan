@@ -112,7 +112,7 @@ function sendMessage() {
   sent.textContent = message;
   document.querySelector(".sent-recv").appendChild(sent);
   sent.scrollIntoView({ behavior: "smooth" });
-  sentSoundAudio.play();
+  sentSound.play();
 
   msg.value = "";
   msg.focus();
