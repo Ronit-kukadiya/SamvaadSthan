@@ -61,12 +61,12 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding: 10px;
-  border-radius: 8px;
   font-size: 1rem;
   margin: 5px 10px;
 }
 
 .StyleSent {
+  border-radius: 10px 10px 0px 10px;
   background-color: var(--SentBbl);
   align-self: flex-end;
   color: var(--TxtColor);
@@ -86,6 +86,7 @@
 }
 
 .StyleReceive {
+  border-radius: 10px 10px 10px 0px;
   background-color: var(--RecvBbl);
   align-self: flex-start;
   color: var(--TxtColor);
