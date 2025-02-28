@@ -1,26 +1,37 @@
-/* :root {
-  --ChatIDDiv: rgb(66, 88, 123);
-  --ChatInpBg: rgb(60, 65, 65);
-  --ChatSpace: rgb(27, 29, 34);
-  --ButtonsBG: rgb(46, 104, 196);
-  --ButtonsHoverBG: rgb(24, 71, 148);
-  --SentBbl: rgb(6, 67, 167);
-  --RecvBbl: rgb(60, 65, 65);
-  --TxtColor: aliceblue;
-  --MsgInpBG: rgb(60, 65, 65);
-} */
+/* MQTT Chat App - Improved Styling */
 
 :root {
-  --ChatIDDiv: rgb(39, 66, 110);
-  --ChatRoomName: rgb(34, 55, 90);
-  --ChatInpBg: rgb(60, 65, 65);
-  --ChatSpace: rgb(23, 25, 31);
-  --ButtonsBG: rgb(45, 94, 173);
-  --ButtonsHoverBG: rgb(26, 38, 177);
-  --SentBbl: rgb(23, 82, 175);
-  --RecvBbl: rgb(64, 69, 69);
-  --TxtColor: aliceblue;
-  --MsgInpBG: rgb(60, 65, 65);
+  /* Main color */
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --secondary-color: #475569;
+  --accent-color: #8b5cf6;
+  
+  /* Bg colors */
+  --bg-dark: #1e293b;
+  --bg-medium: #334155;
+  --bg-light: #475569;
+  
+  /* Message colors */
+  --sent-bubble: #3b82f6;
+  --received-bubble: #475569;
+  
+  /* Text colors*/
+  --text-light: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dark: #1e293b;
+  
+  /* Status colors */
+  --status-connected: #22c55e;
+  --status-connecting: #f59e0b;
+  --status-disconnected: #ef4444;
+  
+  /* Notification colors */
+  --notification-info: #3b82f6;
+  --notification-success: #22c55e;
+  --notification-warning: #f59e0b;
+  --notification-error: #ef4444;
 }
 
 * {
@@ -29,6 +40,22 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/*  Layout */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Indicator */
 #loader {
   position: fixed;
   top: 50%;
@@ -42,160 +69,396 @@
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
+  color: var(--text-light);
 }
 
-.sent-recv {
-  background-color: var(--ChatSpace);
-  height: calc(100vh - 10vh);
+/* Status Indicator */
+.status-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  padding: 5px 10px;
+  background-color: var(--bg-medium);
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#connection-status {
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-connected {
+  background-color: var(--status-connected);
+  color: var(--text-light);
+}
+
+.status-connecting {
+  background-color: var(--status-connecting);
+  color: var(--text-dark);
+}
+
+.status-disconnected {
+  background-color: var(--status-disconnected);
+  color: var(--text-light);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-medium);
+  border-right: 1px solid var(--bg-light);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 20px 15px;
+  border-bottom: 1px solid var(--bg-light);
+  margin-top: 30px; /* Account for status bar */
+}
+
+.sidebar-header h3 {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.user-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  background-color: var(--bg-light);
+}
+
+.user-icon {
+  margin-right: 10px;
+}
+
+.user-name {
+  font-size: 0.9rem;
+}
+
+/* Chat  */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/*  Room Header */
+.chatroom {
+  background-color: var(--bg-medium);
+  padding: 15px;
+  border-bottom: 1px solid var(--bg-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px; 
+}
+
+.chatroom-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-light);
+}
+
+.room-join-area {
+  display: flex;
+}
+
+.room-controls {
+  display: none;
+  gap: 10px;
+}
+
+#room {
+  height: 38px;
+  padding: 8px 12px;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.btn {
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border-radius: 0 5px 5px 0;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  border-radius: 5px;
+}
+
+.btn-danger {
+  background-color: var(--status-disconnected);
+  color: var(--text-light);
+  border-radius: 5px;
+}
+
+/* Messages Area */
+.sent-recv {
+  flex: 1;
+  background-color: var(--bg-dark);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 15px;
 }
 
 .StyleSent,
 .StyleReceive {
-  max-width: 40vw;
+  max-width: 70%;
   width: fit-content;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: 10px;
-  font-size: 1rem;
-  margin: 5px 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .StyleSent {
-  border-radius: 10px 10px 0px 10px;
-  background-color: var(--SentBbl);
+  background-color: var(--sent-bubble);
   align-self: flex-end;
-  color: var(--TxtColor);
-}
-
-.StyleSent::selection {
-  color: var(--TxtColor);
-  background: var(--RecvBbl);
-}
-
-.StyleSent:last-of-type {
-  margin-bottom: 6vh;
-}
-
-.StyleReceive:last-of-type {
-  margin-bottom: 6vh;
+  color: var(--text-light);
+  border-radius: 15px 15px 0 15px;
 }
 
 .StyleReceive {
-  border-radius: 10px 10px 10px 0px;
-  background-color: var(--RecvBbl);
+  background-color: var(--received-bubble);
   align-self: flex-start;
-  color: var(--TxtColor);
+  color: var(--text-light);
+  border-radius: 15px 15px 15px 0;
 }
 
-.chatroom-name {
-  background-color: var(--ChatRoomName);
-  color: var(--TxtColor);
-  position: absolute;
-  left: 10px;
-  font-size: 2rem;
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: normal;
-}
-
-.chatroom {
-  background-color: var(--ChatIDDiv);
-  position: sticky;
-  height: 10vh;
+.message-header {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  justify-content: space-between;
+  padding: 8px 12px 0;
+  font-size: 0.8rem;
 }
 
-.chatroom #room {
-  width: 40vmin;
-  height: 5vmin;
-  text-align: center;
-  background-color: var(--ChatInpBg);
-  color: var(--TxtColor);
-  border-radius: 10px 0px 0px 10px;
-}
-::placeholder {
-  color: var(--TxtColor);
+.message-username {
+  font-weight: bold;
 }
 
-.chatroom .btn {
-  color: var(--TxtColor);
-  background-color: var(--ButtonsBG);
-  height: 5vmin;
-  width: 10vmin;
-  border-radius: 0px 10px 10px 0px;
+.message-time {
+  color: var(--text-muted);
 }
 
-.btn:hover {
-  background-color: var(--ButtonsHoverBG) !important;
-  color: var(--TxtColor) !important;
+.message-text {
+  padding: 5px 12px 10px;
 }
 
+/* Message Input */
 .msg-send {
+  background-color: var(--bg-medium);
+  padding: 15px;
   display: flex;
-  position: fixed;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 100vb;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
+  border-top: 1px solid var(--bg-light);
 }
 
 .msg-send input {
-  background-color: var(--MsgInpBG);
-  color: var(--TxtColor);
   flex: 1;
-  max-width: 100%;
-  padding: 10px;
-  height: 5vmin;
-  border-radius: 10px 0px 0px 10px;
+  padding: 10px 15px;
+  height: 42px;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  border: none;
+  border-radius: 21px 0 0 21px;
+  outline: none;
 }
 
 .msg-send .btn {
-  color: var(--TxtColor);
-  background-color: var(--ButtonsBG);
-  height: 5vmin;
-  width: 10vmin;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0 21px 21px 0;
+  height: 42px;
 }
 
-@media (max-width: 600px) {
-  .chatroom #room {
-    width: 40vw;
-    height: 5vh;
-  }
+/* Notifications */
+.notifications-container {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 300px;
+  z-index: 1000;
+}
 
-  .msg-send input {
-    padding: 8px;
-    height: 5vh;
-  }
+.notification {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: var(--text-light);
+  animation: fadeIn 0.3s ease;
+  position: relative;
+}
 
-  .chatroom .btn,
-  .msg-send .btn {
-    height: 5vh;
-    width: 15vw;
-  }
+.notification-info {
+  background-color: var(--notification-info);
+}
 
-  .StyleSent,
+.notification-success {
+  background-color: var(--notification-success);
+}
+
+.notification-warning {
+  background-color: var(--notification-warning);
+  color: var(--text-dark);
+}
+
+.notification-error {
+  background-color: var(--notification-error);
+}
+
+.notification-fade {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Username Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal-content {
+  background-color: var(--bg-medium);
+  border-radius: 10px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content input {
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid var(--bg-light);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--bg-light);
+  }
+  
+  .chatroom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .room-join-area {
+    width: 100%;
+  }
+  
+  #room {
+    flex: 1;
+  }
+  
+  .StyleSent, 
   .StyleReceive {
-    max-width: 60vw;
+    max-width: 85%;
   }
+}
 
+@media (max-width: 480px) {
   .chatroom-name {
-    font-size: 1.2rem;
-    max-width: 50vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .sidebar {
+    height: 150px;
+  }
+  
+  .sidebar-header h3 {
+    font-size: 1rem;
+  }
+  
+  .StyleSent, 
+  .StyleReceive {
+    max-width: 90%;
   }
 }
