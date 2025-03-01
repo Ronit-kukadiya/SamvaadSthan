@@ -25,8 +25,8 @@ const userList = document.getElementById("user-list");
 const loader = document.getElementById("loader");
 
 // Sound effects
-const receiveSound = new Audio("./notification-sound/discord-notification.mp3");
-const sentSound = new Audio("./notification-sound/pew.mp3");
+const receiveSound = new Audio("./notification-sound/gay-echo.mp3");
+const sentSound = new Audio("./notification-sound/sound1.mp3");
 
 // Connect to the MQTT broker with TLS
 const client = mqtt.connect("wss://test.mosquitto.org:8081/mqtt", options);
