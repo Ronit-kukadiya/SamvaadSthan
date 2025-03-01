@@ -1,5 +1,7 @@
 # SamvaadSthan
 
+MAIN CONTRIBUTER: https://github.com/3BThakuri
+
 A fast and lightweight real-time chat app using MQTT! 💬⚡
 
 🔹 Send and receive messages instantly.
