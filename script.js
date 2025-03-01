@@ -29,7 +29,8 @@ const receiveSound = new Audio("./notification-sound/discord-notification.mp3");
 const sentSound = new Audio("./notification-sound/pew.mp3");
 
 // Connect to the MQTT broker with TLS
-const client = mqtt.connect("wss://broker.hivemq.com:8884/mqtt", options);
+const client = mqtt.connect("wss://test.mosquitto.org:8081/mqtt", options);
+
 
 // Initialize the application
 function init() {
