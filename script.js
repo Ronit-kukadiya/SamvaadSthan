@@ -7,8 +7,7 @@ const options = {
   clientId: 'mqttchat_' + Math.random().toString(16).substr(2, 8),
   // Authentication - Comment out if using a public broker
   // username: "your_username",
-// Pass....
-  
+
 };
 
 // Connection status element
@@ -25,11 +24,12 @@ const userList = document.getElementById("user-list");
 const loader = document.getElementById("loader");
 
 // Sound effects
-const receiveSound = new Audio("./notification-sound/gay-echo.mp3");
-const sentSound = new Audio("./notification-sound/sound1.mp3");
+const receiveSound = new Audio("./notification-sound/discord-notification.mp3");
+const sentSound = new Audio("./notification-sound/pew.mp3");
 
 // Connect to the MQTT broker with TLS
-const client = mqtt.connect("wss://test.mosquitto.org:8081/mqtt", options);
+const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", options);
+
 
 
 // Initialize the application
@@ -270,7 +270,7 @@ function displayMessage(msgObj, isSent) {
   
   const nameSpan = document.createElement("span");
   nameSpan.classList.add("message-username");
-  nameSpan.textContent = isSent ? "You" : msgObj.username;
+  nameSpan.textContent = isSent ? "" : msgObj.username;
   
   const timeSpan = document.createElement("span");
   timeSpan.classList.add("message-time");
