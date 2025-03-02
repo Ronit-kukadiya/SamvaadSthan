@@ -1,20 +1,76 @@
-# SamvaadSthan
 
-MAIN CONTRIBUTOR> https://github.com/3BThakuri
+# SamvaadSthan - MQTT Chat App
 
-A fast and lightweight real-time chat app using MQTT! 💬⚡
+SamvaadSthan is a real-time chat application built using MQTT, JavaScript, HTML, and CSS. It allows users to join chat rooms, send and receive messages instantly, and manage their connection status with an interactive UI.
 
-🔹 Send and receive messages instantly.
+## Features
 
-🔹 Displays usernames, timestamps, and connected room names.
+- **Real-Time Messaging**: Instant chat using MQTT.
+- **Multiple Chat Rooms**: Join different rooms with unique IDs.
+- **User Online Status**: See active users.
+- **Message Notifications**: Sound and visual alerts.
+- **Simple UI**: Clean and easy-to-use interface.
+- **Username Storage**: Saves username for convenience.
 
-🔹 Clean and responsive UI for a smooth experience.
+## Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap
+- **Backend**: MQTT (via EMQX broker)
+
+## Installation & Setup
+
+1. Clone the repository:
+   sh
+   git clone https://github.com/Ronit-kukadiya/SamvaadSthan.git
+   cd SamvaadSthan
+   
+
+2. Install dependencies:
+   sh
+   npm install
+   
+
+## Usage
+1. Enter a username when prompted.
+2. Join a chat room by entering a room ID.
+3. Start chatting with other users.
+4. Click **Clear Chat** to remove messages or **Leave Room** to exit.
+
+## Screenshots
+
+### Chat Room
+![Chat Room](screenshots/chat-room.png)
 
 
-Built for fun, speed, and simplicity—chat anytime! 🚀
+## File Structure
 
-❗⚠️  NO CHATS GET SAVED. ⚠️❗ 
+```
+📂 SamvaadSthan
+├── 📂 notification-sound   # Sound 
+├── 📄 index.html           # Main HTML file
+├── 📄 package-lock.json    # Dependencies lock file
+├── 📄 package.json         # Dependencies list
+├── 📄 script.js            # JavaScript 
+├── 📄 style.css            # CSS 
+```
 
-❗⚠️ ONE REFRESH AND IT'S ALL GONE. ⚠️❗
+## MQTT Configuration
 
-visit the live demo here > https://ronit-kukadiya.github.io/SamvaadSthan/
+The app connects to an MQTT broker using WebSockets:
+```
+const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", options);
+```
+
+## Future Improvements
+
+- User authentication
+- Encrypted messaging
+- Mobile-friendly UI
+
+
+## Contributors
+- **Ronit Kukadiya** - [GitHub](https://github.com/Ronit-kukadiya)
+- **3BThakuri** - [GitHub](https://github.com/3BThakuri)
+```
+
+Just copy and paste it into your `README.md` file. 🚀 Let me know if you need any more changes!
