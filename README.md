@@ -1,10 +1,9 @@
-
+```
 # SamvaadSthan - MQTT Chat App
 
 SamvaadSthan is a real-time chat application built using MQTT, JavaScript, HTML, and CSS. It allows users to join chat rooms, send and receive messages instantly, and manage their connection status with an interactive UI.
 
 ## Features
-
 - **Real-Time Messaging**: Instant chat using MQTT.
 - **Multiple Chat Rooms**: Join different rooms with unique IDs.
 - **User Online Status**: See active users.
@@ -13,22 +12,23 @@ SamvaadSthan is a real-time chat application built using MQTT, JavaScript, HTML,
 - **Username Storage**: Saves username for convenience.
 
 ## Tech Stack
-
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Backend**: MQTT (via EMQX broker)
 
 ## Installation & Setup
 
 1. Clone the repository:
-   sh
+   ```sh
    git clone https://github.com/Ronit-kukadiya/SamvaadSthan.git
    cd SamvaadSthan
-   
+   ```
 
 2. Install dependencies:
-   sh
+   ```sh
    npm install
-   
+   ```
+
+
 
 ## Usage
 1. Enter a username when prompted.
@@ -38,31 +38,31 @@ SamvaadSthan is a real-time chat application built using MQTT, JavaScript, HTML,
 
 ## Screenshots
 
+### Login Screen
+![Login Screen](screenshots/login.png)
+
 ### Chat Room
 ![Chat Room](screenshots/chat-room.png)
 
 
 ## File Structure
-
 ```
 📂 SamvaadSthan
-├── 📂 notification-sound   # Sound 
+├── 📂 notification-sound   # Sound effects
 ├── 📄 index.html           # Main HTML file
 ├── 📄 package-lock.json    # Dependencies lock file
-├── 📄 package.json         # Dependencies list
-├── 📄 script.js            # JavaScript 
+├── 📄 package.json         # Dependencies
+├── 📄 script.js            # JavaScript
 ├── 📄 style.css            # CSS 
 ```
 
 ## MQTT Configuration
 
-The app connects to an MQTT broker using WebSockets:
-```
+```javascript
 const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", options);
 ```
 
 ## Future Improvements
-
 - User authentication
 - Encrypted messaging
 - Mobile-friendly UI
@@ -72,5 +72,3 @@ const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", options);
 - **Ronit Kukadiya** - [GitHub](https://github.com/Ronit-kukadiya)
 - **3BThakuri** - [GitHub](https://github.com/3BThakuri)
 ```
-
-Just copy and paste it into your `README.md` file. 🚀 Let me know if you need any more changes!
