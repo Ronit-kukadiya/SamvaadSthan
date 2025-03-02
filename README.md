@@ -1,4 +1,4 @@
-```
+
 # SamvaadSthan - MQTT Chat App
 
 SamvaadSthan is a real-time chat application built using MQTT, JavaScript, HTML, and CSS. It allows users to join chat rooms, send and receive messages instantly, and manage their connection status with an interactive UI.
