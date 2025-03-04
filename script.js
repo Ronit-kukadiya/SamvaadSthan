@@ -298,9 +298,9 @@ function displayMessage(msgObj, isSent) {
 
   
   // Auto-scroll if near bottom
-  if (isUserNearBottom()) {
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-  }
+  // if (isUserNearBottom()) {
+    // chatContainer.scrollTop = chatContainer.scrollHeight;
+  // }
   
   // Play sound
   if (isSent) {
