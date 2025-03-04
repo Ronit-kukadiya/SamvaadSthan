@@ -290,9 +290,7 @@ function displayMessage(msgObj, isSent) {
   // Add to chat container
   chatContainer.appendChild(messageElement);
 
-
-    chatContainer.scrollIntoView({ behavior: "smooth" });
-
+  messageElement.scrollIntoView({ behavior: "smooth" });
   
   // Auto-scroll if near bottom
   if (isUserNearBottom()) {
