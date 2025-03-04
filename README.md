@@ -45,7 +45,7 @@ SamvaadSthan is a real-time chat application built using MQTT, JavaScript, HTML,
 ![Chat Room](screenshots/chat-room.png)
 
 ### Live Page
-![SamvaadSthan](https://ronit-kukadiya.github.io/SamvaadSthan/)
+https://ronit-kukadiya.github.io/SamvaadSthan/
 
 ## File Structure
 ```
