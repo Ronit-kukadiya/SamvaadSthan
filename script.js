@@ -298,6 +298,7 @@ function displayMessage(msgObj, isSent) {
   // Play sound
   if (isSent) {
     sentSound.play();
+    scrollIntoView({ behavior: "smooth" });
   } else {
     receiveSound.play();
   }
