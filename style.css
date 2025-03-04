@@ -48,6 +48,13 @@ body {
   overflow: hidden;
 }
 
+
+
+
+
+
+
+
 /*  Layout */
 .app-container {
   display: flex;
@@ -120,7 +127,7 @@ body {
 .sidebar-header {
   padding: 20px 15px;
   border-bottom: 1px solid var(--bg-light);
-  margin-top: 30px; /* Account for status bar */
+  margin-top: 30px; 
 }
 
 .sidebar-header h3 {
@@ -303,6 +310,54 @@ body {
   border-radius: 0 21px 21px 0;
   height: 42px;
 }
+@keyframes zoomOut {
+  0% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.logo {
+  
+  width: 350px;  
+  height: auto;
+  
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  
+  animation: zoomOut 2.2s ease-out forwards, floatLogo 4s ease-in-out infinite;
+}
+
+
+.welmsg{
+
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+    
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(19, end) forwards, blinkCursor 0.7s 3;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blinkCursor {
+    50% { border-color: transparent; }
+    100% { border-color: transparent; }
+  }
+  
+  
+
+
 
 /* Notifications */
 .notifications-container {
@@ -378,6 +433,7 @@ body {
 }
 
 .modal-content h2 {
+  font-size: calc(1.325rem + .3vw);
   margin-bottom: 15px;
   color: var(--text-light);
 }
