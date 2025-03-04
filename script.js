@@ -289,6 +289,12 @@ function displayMessage(msgObj, isSent) {
   
   // Add to chat container
   chatContainer.appendChild(messageElement);
+
+  
+  // RONIT
+  messageElement.scrollIntoView({ behavior: "smooth" });
+
+
   
   // Auto-scroll if near bottom
   if (isUserNearBottom()) {
@@ -298,7 +304,6 @@ function displayMessage(msgObj, isSent) {
   // Play sound
   if (isSent) {
     sentSound.play();
-    scrollIntoView({ behavior: "smooth" });
   } else {
     receiveSound.play();
   }
