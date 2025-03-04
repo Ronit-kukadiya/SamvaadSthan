@@ -288,12 +288,17 @@ function displayMessage(msgObj, isSent) {
   messageElement.appendChild(textDiv);
   
   // Add to chat container
+  // chatContainer.appendChild(messageElement);
+
+  // **Check if the user is near bottom before adding the message**
+  let shouldScroll = isSent || isUserNearBottom();
+
+  // **Append the message to the chat container**
   chatContainer.appendChild(messageElement);
 
-  if (isSent) {
-  messageElement.scrollIntoView({ behavior: "smooth" });
-  } else if (isUserNearBottom()) {
-  messageElement.scrollIntoView({ behavior: "smooth" });
+  // **Auto-scroll only if necessary**
+  if (shouldScroll) {
+    messageElement.scrollIntoView({ behavior: "smooth" });
   }
 
   
