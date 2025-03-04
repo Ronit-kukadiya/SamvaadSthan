@@ -291,11 +291,6 @@ function displayMessage(msgObj, isSent) {
   chatContainer.appendChild(messageElement);
 
   
-  // RONIT
-  messageElement.scrollIntoView({ behavior: "smooth" });
-
-
-  
   // Auto-scroll if near bottom
   if (isUserNearBottom()) {
     chatContainer.scrollTop = chatContainer.scrollHeight;
