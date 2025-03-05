@@ -7,7 +7,6 @@ const options = {
   clientId: 'mqttchat_' + Math.random().toString(16).substr(2, 8),
   // Authentication - Comment out if using a public broker
   // username: "your_username",
-
 };
 
 // Connection status element
