@@ -23,8 +23,8 @@ const userList = document.getElementById("user-list");
 const loader = document.getElementById("loader");
 
 // Sound effects
-const receiveSound = new Audio("ASSETS/sounds/receive.mp3");
-const sentSound = new Audio("ASSETS/sounds/sent.mp3");
+const receiveSound = new Audio("./ASSETS/sounds/receive.mp3");
+const sentSound = new Audio("./ASSETS/sounds/sent.mp3");
 
 // Connect to the MQTT broker with TLS
 const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", options);
