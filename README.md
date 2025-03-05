@@ -74,5 +74,5 @@ const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", options);
 
 
 ## Contributors
-- **3BThakuri** - [GitHub](https://github.com/3BThakuri)
+- **3BThakuri** (MAIN CONTRIBUTOR) - [GitHub](https://github.com/3BThakuri)
 - **Ronit Kukadiya** - [GitHub](https://github.com/Ronit-kukadiya)
