@@ -289,22 +289,14 @@ function displayMessage(msgObj, isSent) {
   // Add to chat container
   // chatContainer.appendChild(messageElement);
 
-  // **Check if the user is already near bottom BEFORE adding the message**
   let nearBottom = isUserNearBottom();
 
   // **Now append the message**
   chatContainer.appendChild(messageElement);
 
-  // **Check if we should scroll AFTER rendering the new message**
   if (isSent || nearBottom) {
     chatContainer.scrollTop = chatContainer.scrollHeight; // Force scroll to bottom
   }
-
-  
-  // Auto-scroll if near bottom
-  // if (isUserNearBottom()) {
-    // chatContainer.scrollTop = chatContainer.scrollHeight;
-  // }
   
   // Play sound
   if (isSent) {
