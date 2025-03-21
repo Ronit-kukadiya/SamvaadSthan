@@ -53,7 +53,7 @@ https://ronit-kukadiya.github.io/SamvaadSthan/
 ## File Structure
 ```
 📂 SamvaadSthan
-├── 📂 notification-sound   # Sound effects
+├── 📂 ASSETS               # Sound & images
 ├── 📄 index.html           # Main HTML file
 ├── 📄 package-lock.json    # Dependencies lock file
 ├── 📄 package.json         # Dependencies
