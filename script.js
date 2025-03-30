@@ -9,10 +9,6 @@ const options = {
   // username: "your_username",
 };
 
-const linkoptions = {
-  target : "_blank"
-};
-
 // Connection status element
 const statusIndicator = document.getElementById('connection-status');
 // User information
@@ -258,8 +254,8 @@ function publishMessage(messageObj) {
   
   client.publish(
     `mqtt-chat/${currentRoom}`,
-    // JSON.stringify(messageObj)
-    JSON.stringify(linkifyHtml(messageObj,linkoptions))
+    JSON.stringify(messageObj)
+    // JSON.stringify(linkifyHtml(messageObj,linkoptions))
   );
 }
 
@@ -286,8 +282,7 @@ function displayMessage(msgObj, isSent) {
   
   const textDiv = document.createElement("div");
   textDiv.classList.add("message-text");
-  // textDiv.textContent = msgObj.text;
-  textDiv.innerHTML = linkifyHtml(msgObj.text,linkoptions);
+  textDiv.textContent = msgObj.text;
   
   messageElement.appendChild(header);
   messageElement.appendChild(textDiv);
