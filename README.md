@@ -3,6 +3,10 @@
 
 SamvaadSthan is a real-time chat application built using MQTT, JavaScript, HTML, and CSS. It allows users to join chat rooms, send and receive messages instantly, and manage their connection status with an interactive UI.
 
+## Contributors
+- ***3BThakuri*** (MAIN CONTRIBUTOR THE MVP) - [GitHub](https://github.com/3BThakuri)
+- **Ronit Kukadiya** - [GitHub](https://github.com/Ronit-kukadiya)
+
 ## Features
 - **Real-Time Messaging**: Instant chat using MQTT.
 - **Multiple Chat Rooms**: Join different rooms with unique IDs.
@@ -71,8 +75,3 @@ const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", options);
 - User authentication
 - Encrypted messaging
 - Mobile-friendly UI
-
-
-## Contributors
-- **3BThakuri** (MAIN CONTRIBUTOR THE MVP) - [GitHub](https://github.com/3BThakuri)
-- **Ronit Kukadiya** - [GitHub](https://github.com/Ronit-kukadiya)
